@@ -15,6 +15,49 @@ import static org.junit.Assert.*;
  */
 public class ListTest {
     
+    @Test
+    public void removeAll(){
+        
+        ArrayList<String> listeCoul1 = new ArrayList<>();
+        
+        listeCoul1.add("rouge");
+        listeCoul1.add("vert");
+        listeCoul1.add("jaune");
+        listeCoul1.add("rouge");
+        
+        ArrayList<String> listeCoul2 = new ArrayList<>();
+        
+        listeCoul2.add("rouge");
+        listeCoul2.add("jaune");
+        listeCoul2.add("violet");
+        
+        listeCoul1.removeAll(listeCoul2);
+        
+        for (String coul : listeCoul1) {
+            
+            System.out.println( coul );
+        }
+        
+        System.out.println( listeCoul1 );
+    }
+    
+//    @Test
+    public void removeOK(){
+        ArrayList<String> prenoms = new ArrayList<>();
+        
+        prenoms.add("Laura");
+        prenoms.add("David");
+        prenoms.add("Goliath");
+        prenoms.add("David");
+        
+        prenoms.remove("David");
+        
+        for (String prenom : prenoms) {
+            
+            System.out.println( prenom );
+        }
+    }
+    
     public int factorielle(int n){
         
         int res=n;
@@ -27,7 +70,7 @@ public class ListTest {
         return res;
     }
     
-    @Test
+//    @Test
     public void factorielleOK(){
         
         int r = factorielle(4);
@@ -35,7 +78,7 @@ public class ListTest {
         System.out.println( r );
     }
     
-    @Test
+//    @Test
     public void nbresPremiers(){
         
         ArrayList<Integer> nbPremiers = new ArrayList<>();
@@ -60,7 +103,7 @@ public class ListTest {
         System.out.println( nbPremiers );
     }
     
-    @Test
+//    @Test
     public void addAvecIndiceOK(){
         
         ArrayList<Integer> nombresPremiers = new ArrayList();
@@ -71,7 +114,7 @@ public class ListTest {
         
     }
     
-    @Test
+//    @Test
     public void addOK(){
        
         ArrayList<String> capitales = new ArrayList<>();

@@ -5,6 +5,7 @@
  */
 package atelierjava.test;
 
+import atelierjava.exercice_ferme.service.FermeService;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.junit.Test;

@@ -16,39 +16,41 @@ import javax.persistence.Id;
  * @author Formation
  */
 @Entity
-public class Ressource implements Serializable {
-
-    public enum TypeRessource {
-        ANIMAL_MOUNTON,
-        ANIMAL_VACHE,
-        CULTURE_BLE,
-        CULTURE_MAIS
-    }
+public class Joueur implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private TypeRessource designation;
-    private String nom;
+    private String motDePasse;
+    private double budget;
+    private String pseudo;
 
-    public TypeRessource getDesignation() {
-        return designation;
+    public String getMotDePasse() {
+        return motDePasse;
     }
 
-    public void setDesignation(TypeRessource designation) {
-        this.designation = designation;
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
-    public String getNom() {
-        return nom;
+    public double getBudget() {
+        return budget;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setBudget(double budget) {
+        this.budget = budget;
     }
 
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+    
     
     
     public Long getId() {
@@ -69,10 +71,10 @@ public class Ressource implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Ressource)) {
+        if (!(object instanceof Joueur)) {
             return false;
         }
-        Ressource other = (Ressource) object;
+        Joueur other = (Joueur) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -81,7 +83,7 @@ public class Ressource implements Serializable {
 
     @Override
     public String toString() {
-        return "atelierjava.exercice_ferme.entity.Ressource[ id=" + id + " ]";
+        return "atelierjava.exercice_ferme.entity.Joueur[ id=" + id + " ]";
     }
-
+    
 }

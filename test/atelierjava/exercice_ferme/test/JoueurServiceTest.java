@@ -5,9 +5,9 @@
  */
 package atelierjava.exercice_ferme.test;
 
+import atelierjava.exercice_ferme.entite.Joueur;
 import atelierjava.exercice_ferme.service.JoueurService;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -15,10 +15,19 @@ import static org.junit.Assert.*;
  */
 public class JoueurServiceTest {
     
+    @Test
+    public void rejoindrePartieOK(){
+        JoueurService service = new JoueurService();
+        
+        service.inscription("ccc", "A1zaieuo");
+        Joueur joueur = service.connexion("ccc", "A1zaieuo");
+        service.rejoindrePartie( joueur.getId() );
+    }
+    
     @Test(expected = RuntimeException.class)
     public void connexionKO(){
         JoueurService service = new JoueurService();
-        service.connexion("thomas", "A1zaieuo");
+        service.connexion("bbb", "A1zaieuo");
     }
     
     @Test
@@ -26,10 +35,10 @@ public class JoueurServiceTest {
         
         // 1. Inscrire util
         JoueurService service = new JoueurService();
-        service.inscription("thomas", "A1zaieuo");
+        service.inscription("aaa", "A1zaieuo");
         
         // 2. Connexion avec son login et son mdp
-        service.connexion("thomas", "A1zaieuo");
+        service.connexion("aaa", "A1zaieuo");
     }
     
     @Test
@@ -43,7 +52,7 @@ public class JoueurServiceTest {
     public void inscriptionKO(){
         
         JoueurService service = new JoueurService();
-        service.inscription("abcd", "aaaa123");
+        service.inscription("abcde", "aaaa123");
     }
     
 }

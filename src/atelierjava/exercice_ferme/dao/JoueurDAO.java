@@ -7,6 +7,7 @@ package atelierjava.exercice_ferme.dao;
 
 import atelierjava.exercice_ferme.entite.Joueur;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -16,6 +17,15 @@ import javax.persistence.Query;
  */
 public class JoueurDAO {
 
+    public Joueur rechercher(long idJoueur){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        Joueur j = em.find(Joueur.class, idJoueur);
+        
+        return j;
+    }
+    
     public void ajouter(Joueur j) {
 
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
@@ -37,24 +47,20 @@ public class JoueurDAO {
         return j;
     }
 
-    public boolean existe(String pseudo, String mdp) {
+    public Joueur rechercher(String pseudo, String mdp) {
 
        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-       
        Query query = em.createQuery(""
-               + "SELECT    COUNT(j) "
+               + "SELECT    j "
                + "FROM      Joueur j "
                + "WHERE     j.pseudo=:pseudoExistant "
                + "          AND j.motDePasse=:mdp");
        query.setParameter("pseudoExistant", pseudo);
        query.setParameter("mdp", mdp);
        
-       Long nbRes = (Long) query.getSingleResult();
+       Joueur j = (Joueur) query.getSingleResult();
        
-       if( nbRes==0 )
-           return false;
-       
-       return true;
+       return j;
     }
     
     public boolean existe(String pseudo) {

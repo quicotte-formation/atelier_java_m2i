@@ -6,7 +6,6 @@
 package atelierjava.exercice_ferme.dao;
 
 import atelierjava.exercice_ferme.entite.Joueur;
-import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
@@ -58,8 +57,20 @@ public class JoueurDAO {
        return true;
     }
     
-    public boolean existe(String login) {
+    public boolean existe(String pseudo) {
 
-        return true;
+        // 1. Récupère EntityManager
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        // 2. Vérifie 
+        Query query = em.createQuery("SELECT COUNT(j) FROM Joueur j WHERE j.pseudo=:pseudoExistant");
+        query.setParameter("pseudoExistant", pseudo);
+        
+        long nbJoueurs = (long) query.getSingleResult();
+        
+        if( nbJoueurs>0 )
+            return true;
+        
+        return false;
     }
 }

@@ -32,14 +32,14 @@ public class JoueurServiceTest {
         service.connexion("thomas", "A1zaieuo");
     }
     
-//    @Test
+    @Test
     public void inscriptionOK(){
         
         JoueurService service = new JoueurService();
         service.inscription("abcd", "A2azertt");
     }
     
-//    @Test(expected = RuntimeException.class)
+    @Test(expected = RuntimeException.class)
     public void inscriptionKO(){
         
         JoueurService service = new JoueurService();

@@ -56,7 +56,7 @@ public class JoueurService {
              throw new RuntimeException("Ce pseudo existe déjà");
         }
         
-        // Ajoute la ferme en BD
+        // Ajoute le joueur en BD
         Joueur ferme = new Joueur();
         ferme.setPseudo(pseudo);
         ferme.setMotDePasse(mdp);

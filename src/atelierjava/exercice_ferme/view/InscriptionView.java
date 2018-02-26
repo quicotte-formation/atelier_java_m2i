@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -25,7 +26,7 @@ public class InscriptionView extends GridPane {
     private PasswordField pfMdp = new PasswordField();
     private Button bInscription = new Button("Inscription");
 
-    public InscriptionView() {
+    public InscriptionView(BorderPane borderPaneDuParent) {
 
         // Place des comosants dans ma vue
         this.add(lPseudo, 0, 0);
@@ -44,6 +45,10 @@ public class InscriptionView extends GridPane {
                 // Appelle service d'inscription
                 JoueurService service = new JoueurService();
                 service.inscription(pseudoEntre, mdpEntre);
+                
+                // Remplace centre du parent par texte vide
+                borderPaneDuParent.setCenter(new Label("Inscription réussie"));
+                
             } catch (Exception exception) {
                 
                 Alert alert = new Alert(Alert.AlertType.ERROR);

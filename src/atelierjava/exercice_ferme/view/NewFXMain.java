@@ -37,7 +37,7 @@ public class NewFXMain extends Application {
         
         bInscription.setOnAction( e -> {
             
-            root.setCenter( new InscriptionView() );
+            root.setCenter( new InscriptionView(root) );
         });
         
         root.setTop(barreOutils );

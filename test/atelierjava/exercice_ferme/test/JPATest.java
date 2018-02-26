@@ -22,16 +22,16 @@ public class JPATest {
     public void demarreJPA(){
         
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
-        EntityManager em = factory.createEntityManager();
+//        EntityManager em = factory.createEntityManager();
         
-        em.getTransaction().begin();
-        
-        Joueur j = new Joueur();
-        j.setPseudo("thomas");
-        j.setMotDePasse("1234");
-        em.persist( j );
-        
-        em.getTransaction().commit();
+//        em.getTransaction().begin();
+//        
+//        Joueur j = new Joueur();
+//        j.setPseudo("thomas");
+//        j.setMotDePasse("1234");
+//        em.persist( j );
+//        
+//        em.getTransaction().commit();
     }
     
 }

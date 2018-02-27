@@ -18,46 +18,47 @@ import javafx.scene.layout.GridPane;
  *
  * @author Formation
  */
-public class InscriptionView extends GridPane {
+public class ConnectionView extends GridPane {
 
     private Label lPseudo = new Label("Pseudo");
     private TextField tfPseudo = new TextField();
     private Label lMdp = new Label("Mot-de-passe");
     private PasswordField pfMdp = new PasswordField();
-    private Button bInscription = new Button("Inscription");
+    private Button bConnexion = new Button("Connexion");
 
-    public InscriptionView(BorderPane borderPaneDuParent) {
+    public ConnectionView(BorderPane borderPaneDuParent) {
 
         // Place des comosants dans ma vue
         this.add(lPseudo, 0, 0);
         this.add(tfPseudo, 1, 0);
         this.add(lMdp, 0, 1);
         this.add(pfMdp, 1, 1);
-        this.add(bInscription, 1, 2);
+        this.add(bConnexion, 1, 2);
 
         // Définir mon controleur sur clic bouton
-        bInscription.setOnAction(e -> {
+        bConnexion.setOnAction(e -> {
             try {
-                // Récup pseudo et mdp entrés par l'utilisateur
-                String pseudoEntre = tfPseudo.getText();
-                String mdpEntre = pfMdp.getText();
+                // Récup login et mdp
+                String pseudo = tfPseudo.getText();
+                String mdp = pfMdp.getText();
 
-                // Appelle service d'inscription
+                //  Connecte en utilisant JoueurService.connexion
                 JoueurService service = new JoueurService();
-                service.inscription(pseudoEntre, mdpEntre);
+                service.connexion(pseudo, mdp);
+
+                // 
+                borderPaneDuParent.setCenter(new Label("Connexion réussie"));
+            } catch (Exception erreur) {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 
-                // Remplace centre du parent par texte vide
-                borderPaneDuParent.setCenter(new Label("Inscription réussie"));
-                
-            } catch (Exception exception) {
-                
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Erreur");
-                alert.setHeaderText("Il s'est produit une erreur");
-                alert.setContentText( exception.getMessage() );
+                alert.setTitle("AAA");
+                alert.setHeaderText("BBB");
+                alert.setContentText( "Echec de connexion" );
                 
                 alert.showAndWait();
             }
         });
     }
+
 }

@@ -43,7 +43,7 @@ public class NewFXMainTOM extends Application {
         }
         BorderPane root = new BorderPane();
         HBox hBoxCentre = new HBox(ivBle, ivCabri, ivCarotte, ivFermiere);
-        root.setCenter(new ConnexionPane());
+//        root.setCenter(new ConnexionPane());
 //        root.setCenter(hBoxCentre);
         hBoxCentre.alignmentProperty().setValue(Pos.CENTER);
 

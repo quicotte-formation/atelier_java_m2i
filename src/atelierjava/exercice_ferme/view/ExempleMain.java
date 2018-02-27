@@ -10,9 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,36 +18,22 @@ import javafx.stage.Stage;
  *
  * @author Formation
  */
-public class NewFXMain extends Application {
-    
-    private Button bInscription = new Button("Inscription");
-    private Button bConnexion = new Button("Connexion");
+public class ExempleMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
         
-        BorderPane root = new BorderPane();
         
-        HBox barreOutils = new HBox();
-        barreOutils.getChildren().add( bInscription );
-        barreOutils.getChildren().add( bConnexion );
+        Button btn = new Button("Cliquez ici");
         
-        bInscription.setOnAction( e -> {
+        btn.setOnAction( e -> {
             
-            root.setCenter( new InscriptionView(root) );
-        });
-        
-        bConnexion.setOnAction( e -> {
-            
-            root.setCenter( new ConnectionView(root) );
+            System.out.println("Coucou");
         } );
         
-        root.setTop(barreOutils );
-        root.setBottom( new Label("Copyright 2018 M2i") );
+        Scene scene = new Scene(btn, 300, 250);
         
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Gaia");
+        primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -56,6 +56,8 @@ public class ConnectionView extends GridPane {
                 alert.setHeaderText("Il s'est produit une erreur");
                 alert.setContentText( erreur.getMessage() );
                 
+                erreur.printStackTrace();
+                
                 alert.showAndWait();
             }
         });

@@ -13,9 +13,18 @@ import javafx.scene.layout.GridPane;
  */
 public class EcranJeuView extends GridPane{
     
-    private VBoxRessource vbrCarotte = new VBoxRessource(0, "C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\carotte.png");
-    private VBoxRessource vbrFermier = new VBoxRessource(0, "C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\fermier.png");
-    private VBoxRessource vbrBle = new VBoxRessource(0, "C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\ble.png");
-    private VBoxRessource vbrChevre = new VBoxRessource(0, "C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\chevre.png");
-    private VBoxRessource vbrFromage = new VBoxRessource(0, "C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\ble.png");
+    private VBoxRessource vbrCarotte = new VBoxRessource(0, "file:C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\carotte.png");
+    private VBoxRessource vbrFermier = new VBoxRessource(0, "file:C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\fermier.png");
+    private VBoxRessource vbrBle = new VBoxRessource(0, "file:C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\ble.png");
+    private VBoxRessource vbrChevre = new VBoxRessource(0, "file:C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\chevre.png");
+    private VBoxRessource vbrFromage = new VBoxRessource(0, "file:C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\ble.png");
+
+    public EcranJeuView() {
+        
+        this.add(vbrCarotte, 0, 0);
+        this.add(vbrBle, 1, 0);
+        this.add(vbrFermier, 2, 0);
+        this.add(vbrChevre, 3, 0);
+        this.add(vbrFromage, 4, 0);
+    }
 }

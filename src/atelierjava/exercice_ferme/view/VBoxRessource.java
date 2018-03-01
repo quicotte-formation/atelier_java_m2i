@@ -16,10 +16,14 @@ import javafx.scene.layout.VBox;
 public class VBoxRessource extends VBox{
     
     private Label lNbreRessources = new Label("0");
-    private ImageView iImage = new ImageView("C:\\Users\\Formation.M2I-JAV5-04\\Documents\\NetBeansProjects\\atelier_java_m2i\\src\\IMAGES\\carotte.png");
+    private ImageView iImage;
 
     public VBoxRessource(long nbRessource, String urlImage) {
         
+        this.iImage = new ImageView(urlImage);
+        
+        this.iImage.setFitWidth(100);
+        this.iImage.setPreserveRatio(true);
         this.getChildren().add( this.iImage );
         this.getChildren().add( this.lNbreRessources );
     }
